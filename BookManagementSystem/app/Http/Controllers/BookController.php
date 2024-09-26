@@ -11,10 +11,29 @@ class BookController extends Controller
      */
 
     //  GET /api/books
-    public function index()
+    public function index(Request $request)
     {
-        //
-        return response()->json(Book::all(), 200);
+        $search = $request->query('search'); // Get the search query
+        $genre = $request->query('genre'); // Get the genre query
+
+        try {
+            $query = Book::query();
+
+            if ($genre) {
+                $query->where('genre', $genre);
+            }
+
+            if ($search) {
+                $query->where('title', 'like', "%$search%")
+                      ->orWhere('author', 'like', "%$search%")
+                      ->orWhere('description', 'like', "%$search%");
+            }
+
+            $books = $query->get();
+            return response()->json($books);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'An error occurred: ' . $e->getMessage()], 500);
+        }
     }
 
     /**

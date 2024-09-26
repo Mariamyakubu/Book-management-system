@@ -29,6 +29,8 @@ const SignIn = ({ isActive, onClose, onSignUpClick }) => {
       console.log("Response:", response); // Debugging: log the response to see its content
 
       if (response.status === 200) {
+        const token = response.data.token; // Adjust based on your API response
+        localStorage.setItem('token', token);
         alert("Sign-in successful!");
         onClose(); // Close the form
         window.location.href = "/"; // Redirect user to homepage or another page

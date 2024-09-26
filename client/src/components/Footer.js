@@ -37,8 +37,8 @@ const Footer=()=>{
 
    <div class="box">
     <h3>contact</h3>
-<a href="#"> <i class="fas fa-phone"></i> 055 008 951 </a>
-<a href="#"> <i class="fas fa-envelope"></i> abeekuwilliams@gmail.com </a>
+<a href="#"> <i class="fas fa-phone"></i> 059 857 4205 </a>
+<a href="#"> <i class="fas fa-envelope"></i> mrmyaku@gmail.com </a>
 <img src="images/worldmap.jpg" class="map" alt="rti"/>
 </div>
 
